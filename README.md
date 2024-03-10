@@ -7,3 +7,6 @@ Compile Instructions
 3. Run the insertIntoDatabase.sql which will insert data into the table.
 
 4. Then go to the COMP3005A3Q1.java file and run the main.java file.
+
+
+Video Demonstration: https://youtu.be/KEKG0vrYqO8
