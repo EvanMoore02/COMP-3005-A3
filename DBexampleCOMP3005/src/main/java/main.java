@@ -48,6 +48,7 @@ public class main{
 
     public static void getAllStudents(Statement statement) {
         try {
+            // SQL Query to select all students
             ResultSet resultSet = statement.executeQuery("SELECT * FROM students");
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
@@ -70,9 +71,11 @@ public class main{
 
     public static void addStudent(Statement statement, String firstName, String lastName, String email, String enrollmentDate) {
         try {
+            // SQL Query to insert a record into the table
             String insertSQL = "INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES " +
                     "('" + firstName + "', '" + lastName + "', '" + email + "', '" + enrollmentDate + "')";
             int rowsInserted = statement.executeUpdate(insertSQL);
+            // Check to make sure the insert was successful
             if (rowsInserted > 0) {
                 System.out.println("A new student was inserted successfully!");
             }
@@ -83,8 +86,10 @@ public class main{
 
     public static void updateStudentEmail(Statement statement, String studentId, String newEmail) {
         try {
+            // SQL Query to update a students email in the table
             String updateSQL = "UPDATE students SET email = '" + newEmail + "' WHERE student_id = '" + studentId + "'";
             int rowsUpdated = statement.executeUpdate(updateSQL);
+            // Check to make sure the update was successful
             if (rowsUpdated > 0) {
                 System.out.println("Student email was updated successfully!");
             }
@@ -97,6 +102,7 @@ public class main{
         try {
             String deleteSQL = "DELETE FROM students WHERE student_id = '" + studentId + "'";
             int rowsDeleted = statement.executeUpdate(deleteSQL);
+            // Check to make sure the delete was successful
             if (rowsDeleted > 0) {
                 System.out.println("Student was deleted successfully!");
             }
